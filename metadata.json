@@ -1,0 +1,6 @@
+{
+  "name": "AN.FLIX — Premium Anime Discovery Platform",
+  "description": "Discover, identify, and explore anime. Search by image, Instagram link, or title, explore episodes, characters, daily updates, personal library, and authorized downloads.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

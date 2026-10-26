@@ -1,0 +1,263 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-primary: #070D1C;
+    --bg-secondary: #101A30;
+    --bg-card: #111D33;
+    --bg-elevated: #17243D;
+    --accent-blue: #648BFF;
+    --accent-lavender: #B8A2FF;
+    --accent-pink: #E6A8D7;
+    --text-primary: #F4F5FF;
+    --text-secondary: #A9B5CE;
+    --text-muted: #7888A7;
+    --border-color: rgba(169, 181, 206, 0.13);
+    --glow-blue: rgba(100, 139, 255, 0.18);
+  }
+
+  html.light,
+  body.light-mode {
+    --bg-primary: #F4F6FB;
+    --bg-secondary: #FFFFFF;
+    --bg-card: #FFFFFF;
+    --bg-elevated: #F8FAFC;
+    --accent-blue: #4F46E5;
+    --accent-lavender: #7C3AED;
+    --accent-pink: #DB2777;
+    --text-primary: #0F172A;
+    --text-secondary: #334155;
+    --text-muted: #64748B;
+    --border-color: #E2E8F0;
+    --glow-blue: rgba(79, 70, 229, 0.12);
+  }
+
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(7, 13, 28, 0.5);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(100, 139, 255, 0.25);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 139, 255, 0.5);
+}
+
+/* Light mode custom scrollbars */
+html.light ::-webkit-scrollbar-track {
+  background: #E2E8F0;
+}
+html.light ::-webkit-scrollbar-thumb {
+  background: #94A3B8;
+}
+
+/* Atmospheric Glow Utilities */
+.glow-blue {
+  box-shadow: 0 0 25px -5px rgba(100, 139, 255, 0.25);
+}
+
+.glow-lavender {
+  box-shadow: 0 0 25px -5px rgba(184, 162, 255, 0.25);
+}
+
+.text-gradient-anime {
+  background: linear-gradient(135deg, #F4F5FF 0%, #B8A2FF 60%, #648BFF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-purple {
+  background: linear-gradient(135deg, #B8A2FF 0%, #E6A8D7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bg-gradient-hero {
+  background: radial-gradient(circle at 75% 30%, rgba(100, 139, 255, 0.18) 0%, rgba(184, 162, 255, 0.08) 35%, transparent 70%);
+}
+
+/* ========================================================
+   LIGHT MODE OVERRIDES
+   Scoped strictly to main, header, and footer so the side
+   menu section Moonlit Sakura Temple artwork remains fully
+   visible with high clarity.
+======================================================== */
+html.light {
+  color-scheme: light;
+}
+
+html.light body {
+  background-color: #F4F6FB !important;
+  color: #0F172A !important;
+}
+
+/* Light mode surface and container overrides (scoped to main, header, and footer) */
+html.light main [class*="bg-[#070D1C]"],
+html.light main [class*="bg-[#070d1c]"],
+html.light header [class*="bg-[#070D1C]"],
+html.light header [class*="bg-[#070d1c]"],
+html.light footer [class*="bg-[#070D1C]"],
+html.light footer [class*="bg-[#070d1c]"] {
+  background-color: #F4F6FB !important;
+}
+
+html.light main [class*="bg-[#0A1224]"],
+html.light main [class*="bg-[#0a1224]"],
+html.light header [class*="bg-[#0A1224]"],
+html.light header [class*="bg-[#0a1224]"],
+html.light footer [class*="bg-[#0A1224]"],
+html.light footer [class*="bg-[#0a1224]"] {
+  background-color: #F8FAFC !important;
+}
+
+html.light main [class*="bg-[#0F1932]"],
+html.light main [class*="bg-[#0f1932]"],
+html.light main [class*="bg-[#0E172C]"],
+html.light main [class*="bg-[#0e172c]"],
+html.light main [class*="bg-[#101A30]"],
+html.light main [class*="bg-[#101a30]"],
+html.light main [class*="bg-[#111D33]"],
+html.light main [class*="bg-[#111d33]"],
+html.light header [class*="bg-[#0F1932]"],
+html.light header [class*="bg-[#0E172C]"],
+html.light footer [class*="bg-[#0F1932]"],
+html.light footer [class*="bg-[#0E172C]"] {
+  background-color: #FFFFFF !important;
+}
+
+html.light main [class*="bg-[#152342]"],
+html.light main [class*="bg-[#162340]"],
+html.light main [class*="bg-[#172545]"],
+html.light main [class*="bg-[#142345]"],
+html.light main [class*="bg-[#131F3A]"],
+html.light main [class*="bg-[#1C2C54]"],
+html.light main [class*="bg-[#1C2B4D]"],
+html.light header [class*="bg-[#152342]"],
+html.light header [class*="bg-[#162340]"],
+html.light header [class*="bg-[#101A30]"],
+html.light footer [class*="bg-[#152342]"],
+html.light footer [class*="bg-[#162340]"] {
+  background-color: #F1F5F9 !important;
+}
+
+/* Light mode borders */
+html.light main [class*="border-[#1B294B]"],
+html.light main [class*="border-[#1b294b]"],
+html.light main [class*="border-[#1E2E54]"],
+html.light main [class*="border-[#1e2e54]"],
+html.light main [class*="border-[#213560]"],
+html.light main [class*="border-[#253A6B]"],
+html.light main [class*="border-[#223663]"],
+html.light main [class*="border-[#223561]"],
+html.light main [class*="border-[#1C2C52]"],
+html.light main [class*="border-[#182749]"],
+html.light main [class*="border-[#1D2E54]"],
+html.light main [class*="border-[#1F2E52]"],
+html.light main [class*="border-[#172545]"],
+html.light main [class*="border-[#1A284D]"],
+html.light header [class*="border-[#1B294B]"],
+html.light footer [class*="border-[#1B294B]"] {
+  border-color: #E2E8F0 !important;
+}
+
+/* Light mode text colors */
+html.light main [class*="text-white"],
+html.light main [class*="text-[#F4F5FF]"],
+html.light main [class*="text-[#f4f5ff]"],
+html.light header [class*="text-white"],
+html.light header [class*="text-[#F4F5FF]"],
+html.light footer [class*="text-white"],
+html.light footer [class*="text-[#F4F5FF]"] {
+  color: #0F172A !important;
+}
+
+html.light main [class*="text-[#A9B5CE]"],
+html.light main [class*="text-[#a9b5ce]"],
+html.light header [class*="text-[#A9B5CE]"],
+html.light footer [class*="text-[#A9B5CE]"] {
+  color: #475569 !important;
+}
+
+html.light main [class*="text-[#7888A7]"],
+html.light main [class*="text-[#7888a7]"],
+html.light header [class*="text-[#7888A7]"],
+html.light footer [class*="text-[#7888A7]"] {
+  color: #64748B !important;
+}
+
+/* Maintain crisp white text on colored gradient buttons and badges */
+html.light button[class*="bg-gradient-to-r"] *,
+html.light button[class*="bg-gradient-to-br"] *,
+html.light a[class*="bg-gradient-to-r"] *,
+html.light button[class*="bg-[#648BFF]"] *,
+html.light button[class*="bg-[#10B981]"] *,
+html.light button[class*="bg-[#FF0000]"] *,
+html.light button[class*="bg-[#E1306C]"] *,
+html.light span[class*="bg-[#FF4572]"],
+html.light span[class*="bg-[#648BFF]"],
+html.light span[class*="bg-[#10B981]"],
+html.light span[class*="bg-[#FF4572]"] * {
+  color: #FFFFFF !important;
+}
+
+/* Shadows in light mode */
+html.light main .shadow-xl,
+html.light main .shadow-2xl {
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.08), 0 2px 6px -1px rgba(15, 23, 42, 0.04) !important;
+}
+
+/* ========================================================
+   SIDEBAR MENU SECTION PROTECTION
+   The Moonlit Sakura Temple Overlook artwork must ALWAYS
+   remain visible with high clarity and contrast in both modes.
+======================================================== */
+.sidebar-menu-section,
+html.light .sidebar-menu-section,
+body.light-mode .sidebar-menu-section {
+  background-color: #070D1C !important;
+  border-right-color: rgba(27, 41, 75, 0.8) !important;
+}
+
+html.light .sidebar-menu-section [class*="text-white"],
+html.light .sidebar-menu-section .text-white,
+html.light .sidebar-menu-section [class*="text-[#F4F5FF]"] {
+  color: #FFFFFF !important;
+}
+
+html.light .sidebar-menu-section [class*="text-[#A9B5CE]"] {
+  color: #CBD5E1 !important;
+}
+
+html.light .sidebar-menu-section [class*="text-[#7888A7]"] {
+  color: #94A3B8 !important;
+}
+
+html.light .sidebar-menu-section [class*="bg-[#070D1C]"],
+html.light .sidebar-menu-section [class*="bg-[#070d1c]"] {
+  background-color: rgba(7, 13, 28, 0.35) !important;
+}
+
+html.light .sidebar-menu-section [class*="bg-[#0E172C]"] {
+  background-color: rgba(14, 23, 44, 0.5) !important;
+}
+
+html.light .sidebar-menu-section [class*="border-[#172545]"],
+html.light .sidebar-menu-section [class*="border-[#1E2D52]"],
+html.light .sidebar-menu-section [class*="border-[#1B294B]"] {
+  border-color: rgba(27, 41, 75, 0.5) !important;
+}

@@ -1,0 +1,2510 @@
+# AN.FLIX — PREMIUM ANIME DISCOVERY PLATFORM
+## MASTER PRODUCT, UI/UX, FULL-STACK ENGINEERING & IMPLEMENTATION SPECIFICATION
+
+### YOUR ROLE
+
+Act as a senior product designer, UI/UX architect, React and TypeScript engineer, backend engineer, database architect, security engineer, accessibility specialist, and QA engineer.
+
+Your mission is to DESIGN, BUILD, TEST, and DOCUMENT a complete, production-oriented website named **AN.FLIX**.
+
+This is not a request for a static landing page, a wireframe, a generic anime streaming template, or a frontend demonstration.
+
+Build a cohesive anime discovery platform with a premium visual identity, reusable components, functional navigation, real anime metadata, secure authentication, a personal library, an administrative content management system, anime identification integration points, and an authorized download manager.
+
+The website must be deployable and maintainable.
+
+Do not merely explain how to build it. Implement the actual application in the available project workspace.
+
+If external services or credentials are unavailable, build the appropriate integration boundaries, provide an honest fallback, and document the remaining setup. Never pretend an unconfigured feature works.
+
+---
+
+# PHASE 1 — PRODUCT VISION
+
+## 1. Brand identity
+
+Brand name: AN.FLIX
+
+Tagline: Watch · Discover · Explore
+
+Brand positioning: A premium, cinematic, intelligent anime discovery platform.
+
+Core promise:
+
+Help users discover anime, identify unfamiliar anime scenes, follow releases, explore characters and episodes, organize their favorites, and find legitimate viewing or downloading options.
+
+The experience should feel like a combination of a thoughtfully designed anime editorial platform and a sophisticated personal discovery dashboard.
+
+It must not look like a copied streaming service, a generic admin template, or a childish anime fan website.
+
+### Primary user journeys
+
+1. Discover new anime through featured collections and trending rankings.
+2. Search for anime using titles, characters, genres, and metadata.
+3. Identify anime using supported video links or uploaded screenshots.
+4. Read current anime news and verified release information.
+5. Explore anime details, seasons, episodes, characters, and related titles.
+6. Save anime to a personal library and favorites.
+7. Find authorized viewing options.
+8. Download media only when the source and applicable permissions allow it.
+9. Review personal activity and download history.
+10. Allow an administrator to maintain anime information and publish daily updates.
+
+Prioritize the discovery experience. Downloading is one feature of the platform, not the entire product.
+
+---
+
+# PHASE 2 — VISUAL DESIGN SYSTEM
+
+## 2. Visual direction
+
+Create a premium dark interface with cinematic depth, restrained lighting, subtle translucency, soft gradients, elegant typography, and spacious composition.
+
+The overall feeling should be:
+
+- Cinematic
+- Calm
+- Intelligent
+- Immersive
+- Modern
+- Premium
+- Minimal without feeling empty
+- Anime-inspired without appearing childish
+
+Use the atmosphere of a sophisticated nighttime anime world, with indigo shadows, soft blue light, lavender accents, misty landscapes, and occasional cherry-blossom pink.
+
+Avoid excessive neon, rainbow gradients, excessive glass effects, thick borders, overly rounded everything, and unnecessary decorative elements.
+
+### Color tokens
+
+Define these as reusable CSS variables or design tokens.
+
+Primary background: #070D1C
+
+Secondary background: #101A30
+
+Card background: #111D33
+
+Elevated surface: #17243D
+
+Primary blue: #648BFF
+
+Lavender: #B8A2FF
+
+Soft pink: #E6A8D7
+
+Primary text: #F4F5FF
+
+Secondary text: #A9B5CE
+
+Muted text: #7888A7
+
+Border: rgba(169, 181, 206, 0.13)
+
+Subtle glow: rgba(100, 139, 255, 0.18)
+
+Success: a restrained, accessible green.
+
+Warning: a muted amber.
+
+Error: a clear, accessible red.
+
+Use semantic color tokens rather than scattering arbitrary hex values throughout components.
+
+Support a dark-first appearance. If a light theme is implemented, ensure the complete application remains readable in both themes.
+
+### Typography
+
+Use a modern sans-serif family such as Inter, Geist, or another suitable available font.
+
+Use an elegant display treatment for major hero headings, with controlled letter spacing and line height.
+
+Typography hierarchy:
+
+- Hero heading: approximately 48–64px on desktop.
+- Page headings: approximately 28–36px.
+- Section headings: approximately 20–24px.
+- Card titles: approximately 14–18px.
+- Supporting copy: approximately 13–15px.
+- Metadata: approximately 11–13px.
+
+Scale typography fluidly for mobile.
+
+Do not use oversized headings on every section.
+
+### Spacing and layout
+
+Use an 8px spacing system.
+
+Use consistent radii:
+- Small controls: 8–10px.
+- Standard cards: 12–16px.
+- Hero and large feature panels: 18–24px.
+
+Use subtle shadows, fine borders, and restrained background gradients.
+
+Keep the interface spacious and aligned.
+
+### Motion
+
+Use subtle, purposeful transitions.
+
+Examples:
+- Cards lift slightly on hover.
+- Images scale gently within their containers.
+- Sidebar selection transitions smoothly.
+- Search panels reveal without jarring movement.
+- Modals fade and scale in.
+- Buttons respond immediately to interaction.
+
+Typical transition duration: 160–240ms.
+
+Respect `prefers-reduced-motion`.
+
+Do not add excessive parallax, flashing lights, or animations that interfere with reading.
+
+### Iconography
+
+Use a consistent icon library such as Lucide React.
+
+Do not use emoji as substitutes for navigation icons.
+
+All icon-only buttons must have accessible labels and tooltips where appropriate.
+
+---
+
+# PHASE 3 — REQUIRED VISUAL COMPOSITION
+
+## 3. Desktop application shell
+
+Build a complete responsive dashboard shell.
+
+The desktop layout consists of:
+
+1. A left sidebar approximately 232–250px wide.
+2. A compact top navigation bar.
+3. A scrollable main content region.
+4. Optional contextual panels where they improve the experience.
+
+Use a consistent content container and grid.
+
+At desktop widths around 1440px, the page should feel balanced, with the main hero receiving the greatest visual attention.
+
+The sidebar should remain visually stable during scrolling. The top navigation should remain accessible.
+
+Avoid excessive nesting of scrollable containers.
+
+### Sidebar
+
+At the top, display a custom AN.FLIX wordmark.
+
+Style the logo using clean typography and a subtle blue-to-lavender accent.
+
+Main navigation:
+
+- Home
+- Latest Updates
+- Search Anime
+- Download Manager
+- My Library
+- Favorites
+
+Include a divider.
+
+Quick Access:
+
+- Paste Instagram Link
+- Search by Image
+- Video Downloader
+
+Each item must navigate to a real route or open a functional interface.
+
+Highlight the active route with a subtle tinted background, clear text contrast, and a restrained accent.
+
+At the bottom, include a compact anime-inspired quote:
+
+"Every frame tells a story."
+
+Include a small decorative visual that does not compete with the navigation.
+
+Provide a collapse control on desktop if appropriate.
+
+### Top navigation
+
+Include:
+
+- Current page context or compact brand mark.
+- Primary shortcuts where appropriate.
+- Global anime search.
+- Theme control.
+- Notification menu.
+- User profile menu.
+
+The search field must support actual search submission, not merely display text.
+
+The notification menu must display real notifications when configured and an honest empty state otherwise.
+
+The profile menu should provide account access, personal library, settings, and logout when authenticated.
+
+On mobile, simplify the header and avoid duplicate navigation clutter.
+
+---
+
+# PHASE 4 — HOME PAGE
+
+## 4. Homepage composition
+
+Build the homepage in this order:
+
+1. Cinematic hero.
+2. Today's Updates.
+3. Popular This Week.
+4. Quick Tools.
+5. Featured Anime.
+6. Latest Episodes.
+7. Optional editorial or news section.
+8. Footer.
+
+Use consistent card sizes and spacing.
+
+The page should feel curated rather than overcrowded.
+
+## 4.1 Cinematic hero
+
+Create a large hero panel approximately 360–460px tall on desktop.
+
+Use a layered composition with:
+
+- A deep navy gradient.
+- A twilight landscape.
+- Distant mountains or Japanese-inspired scenery.
+- Soft atmospheric mist.
+- Restrained floating cherry-blossom petals.
+- Blue and violet rim lighting.
+- Cinematic depth.
+- A subtle dark overlay behind text.
+- Carefully controlled visual contrast.
+
+The image should remain visually impressive without sacrificing readability.
+
+### Hero content
+
+Eyebrow:
+
+SOLO LEVELING
+
+Main heading:
+
+Every Anime, One Place.
+
+Supporting copy:
+
+Discover. Download. Explore. Get the latest anime updates, identify unknown anime, and discover new episodes in one place.
+
+Main search field:
+
+Paste Instagram link or type anime name…
+
+Primary action:
+
+Search Anime
+
+Secondary action:
+
+Explore Anime
+
+Under the search area, add three compact shortcuts:
+
+- Daily Updates
+- Smart Search
+- Download Videos
+
+Each shortcut must open its relevant page or function.
+
+Add a small visual label:
+
+Beru — Shadow Soldier
+
+### Hero artwork requirements
+
+The intended visual reference is a cinematic Solo Leveling-inspired composition featuring Sung Jin-Woo and Beru.
+
+Beru should have a recognizable insectoid shadow-soldier silhouette, armored anatomy, distinctive mandibles, and blue-violet energy. Sung Jin-Woo should be positioned so the overall composition feels powerful and balanced.
+
+Keep the characters to the right or in the background. Keep the heading and search field on the left.
+
+Do not distort character anatomy or cover text with artwork.
+
+Do not falsely describe generated artwork as official anime promotional artwork.
+
+IMPORTANT IMPLEMENTATION RULE:
+
+Use only artwork that is authorized for the intended use, or artwork generated for the project where permitted.
+
+If the coding environment cannot generate suitable original artwork, create the hero using a configurable image asset and an attractive gradient fallback. Do not depend on an imaginary asset path.
+
+If the requested franchise-specific artwork cannot be used, retain the same cinematic composition with original shadow-fantasy artwork. Do not substitute a generic monster and label it Beru.
+
+Store the hero image path in configuration so it can be changed without editing the component.
+
+Optimize image dimensions, loading behavior, cropping, and mobile positioning.
+
+On mobile, reduce hero height, stack content, and ensure that the artwork does not obscure the search controls.
+
+## 4.2 Today's Updates
+
+Section heading:
+
+Today's Updates
+
+Supporting text:
+
+Fresh discoveries from the anime world.
+
+Include a View All button.
+
+Display a horizontal card row or responsive grid.
+
+Initial demonstration titles may include:
+
+- Solo Leveling
+- Dandadan
+- Blue Lock
+- Chainsaw Man
+- Jujutsu Kaisen
+
+These are seed examples only. They must not be falsely represented as having new episodes or releases today.
+
+Each card should include:
+
+- Poster or thumbnail.
+- Anime title.
+- Status badge when verified.
+- Latest episode or release information.
+- Genre.
+- Release date when available.
+- A Details action.
+
+Use real database records or a configured anime metadata source.
+
+Only show a New Episode badge when the episode data supports that claim.
+
+When no verified release information exists, display neutral metadata instead of fabricating a date.
+
+Clicking a card opens the corresponding anime details page.
+
+Clicking View All opens the complete updates listing.
+
+## 4.3 Popular This Week
+
+Create a compact ranking panel with a heading:
+
+Popular This Week
+
+Display numbered rows with:
+
+- Rank.
+- Thumbnail.
+- Anime title.
+- Genre.
+- Release year.
+- Trend indicator, only when supported by data.
+
+Use actual ranking data when available.
+
+If a ranking is derived from internal views or favorites, label the metric accordingly.
+
+If the service does not provide real weekly popularity information, label the section as editor-curated or use clearly identified sample data in development.
+
+Never fabricate live popularity statistics.
+
+Add View All navigation.
+
+## 4.4 Quick Tools
+
+Create four visually distinct tool cards:
+
+1. Download Anime.
+2. Search by Image.
+3. Instagram to Anime.
+4. My Downloads.
+
+Each card needs:
+
+- A consistent icon.
+- A clear title.
+- One-line supporting text.
+- A working action.
+- A visible hover and focus state.
+
+Use restrained blue and lavender accents.
+
+Avoid oversized colorful tiles.
+
+## 4.5 Featured Anime
+
+Create a wide cinematic feature card.
+
+Include:
+
+- Landscape artwork.
+- Anime title.
+- Genre tags.
+- Release year when available.
+- A short synopsis.
+- Watch Now.
+- Details.
+
+Watch Now must open an actual authorized viewing source or the relevant episode page.
+
+Details opens the complete anime detail route.
+
+If no viewing source is configured, show a clear explanation and a link to available official options when known.
+
+Never render a fake video player.
+
+## 4.6 Latest Episodes
+
+Display a structured list of recently released episodes.
+
+Each row contains:
+
+- Thumbnail.
+- Anime title.
+- Season or episode information.
+- Runtime when verified.
+- Publication or release date.
+- Details action.
+
+Use real episode records.
+
+If no episodes are available, show a well-designed empty state with a link to discover anime.
+
+View All opens the complete episode listing.
+
+---
+
+# PHASE 5 — ROUTING AND APPLICATION PAGES
+
+Implement a real routing system using React Router or another suitable supported router.
+
+Use reusable layouts and dynamic routes.
+
+Required routes:
+
+`/`
+`/updates`
+`/trending`
+`/search`
+`/search/image`
+`/search/link`
+`/anime/:animeId`
+`/anime/:animeId/episodes`
+`/episode/:episodeId`
+`/download`
+`/downloads`
+`/library`
+`/favorites`
+`/history`
+`/notifications`
+`/profile`
+`/settings`
+`/login`
+`/signup`
+`/forgot-password`
+`/about`
+`/contact`
+`/privacy`
+`/terms`
+`/admin`
+`/admin/anime`
+`/admin/episodes`
+`/admin/updates`
+`/admin/characters`
+`/admin/genres`
+`/admin/trending`
+`/admin/settings`
+
+Implement a useful not-found page.
+
+Protect private routes appropriately.
+
+Visitors must be able to browse public anime information without creating an account.
+
+Authentication should be required only for personal features and administrative actions that genuinely need it.
+
+All navigation should use correct route destinations and browser history behavior.
+
+Direct navigation to a valid detail URL must work after deployment.
+
+---
+
+# PHASE 6 — ANIME SEARCH AND IDENTIFICATION
+
+## 6. Search Anime page
+
+This is a core product feature.
+
+Build a dedicated search interface with three clear modes:
+
+- Search by Link.
+- Search by Image.
+- Search by Text.
+
+Use an elegant segmented control or tabs.
+
+Preserve the active mode and search state where appropriate.
+
+## 6.1 Text search
+
+Allow users to search by:
+
+- Anime title.
+- Alternative title.
+- Character name when supported.
+- Genre.
+- Release year.
+- Season.
+- Other available metadata.
+
+Implement:
+
+- Search input.
+- Submit action.
+- Clear action.
+- Debounced suggestions.
+- Keyboard navigation.
+- Recent searches where appropriate.
+- Loading skeletons.
+- Empty results.
+- Error states.
+- Pagination or load more.
+
+Use actual API or database search.
+
+Do not hardcode a fixed list of results as the production search implementation.
+
+A small seed dataset is acceptable for development if clearly labeled.
+
+Normalize search input and handle empty or invalid queries.
+
+Use accessible combobox behavior for suggestions.
+
+## 6.2 Image-based anime identification
+
+Create a polished image upload interface.
+
+Allow:
+
+- File selection.
+- Drag and drop.
+- Image preview.
+- Remove.
+- Replace.
+- Submit.
+- Loading.
+- Success.
+- Error.
+- Retry.
+
+Support common image formats such as JPEG, PNG, and WebP.
+
+Set a reasonable configurable maximum upload size.
+
+Validate MIME type and file content where possible.
+
+Reject unsupported formats with a helpful message.
+
+Do not automatically upload an image before the user initiates the search.
+
+### Recognition workflow
+
+Implement a provider abstraction for image identification.
+
+The intended workflow is:
+
+1. Validate the selected image.
+2. Send the image to the configured server-side recognition provider.
+3. Analyze the response.
+4. Normalize matching results.
+5. Match recognized titles against the anime metadata source.
+6. Display available results.
+7. Explain uncertainty when the provider cannot identify the scene.
+
+Results may include:
+
+- Anime title.
+- Cover image.
+- Recognized character names when supported.
+- Likely episode or season when supported.
+- Confidence score when returned by the provider.
+- A brief evidence explanation when available.
+- Link to anime details.
+- Official viewing options where available.
+
+Never invent confidence scores, characters, episode numbers, or recognition evidence.
+
+If no recognition provider is configured, explain:
+
+"Image identification is not configured yet. You can still search the anime database by title, character, or genre."
+
+Provide a useful fallback to text search.
+
+Do not pretend that ordinary database search has analyzed an uploaded screenshot.
+
+### Privacy
+
+Tell users how uploaded images are processed.
+
+Do not permanently store uploaded screenshots unless explicitly required and disclosed.
+
+Delete temporary files after processing according to the configured retention policy.
+
+Enforce upload limits and server-side validation.
+
+## 6.3 Link-based anime identification
+
+Create a URL input that accepts supported public video links.
+
+The primary example is an Instagram Reel URL.
+
+Also support other providers only when their documented APIs or permitted integrations are configured.
+
+Include:
+
+- URL validation.
+- Supported-provider detection.
+- Search button.
+- Loading state.
+- Progress messages based on actual processing stages.
+- Success state.
+- Error state.
+- Retry.
+- Result details.
+
+### Processing architecture
+
+Build the backend workflow as a provider-based pipeline:
+
+1. Validate the URL.
+2. Identify the source provider.
+3. Check whether the provider is supported.
+4. Retrieve only metadata or media that the integration is authorized to access.
+5. Analyze accessible frames when a configured vision provider supports this.
+6. Search the anime metadata source.
+7. Normalize candidate matches.
+8. Return results with a clear explanation of the available evidence.
+
+Distinguish between:
+
+- URL parsing.
+- Public metadata lookup.
+- Authorized media retrieval.
+- Video-frame analysis.
+- Anime title matching.
+
+A URL by itself does not guarantee access to video frames.
+
+Instagram may restrict access through authentication, privacy settings, rate limits, or other platform limitations.
+
+Do not bypass these restrictions.
+
+Never ask users for their Instagram passwords.
+
+Never scrape private content or evade access controls.
+
+If direct video analysis is unavailable, provide an honest fallback that asks the user to upload a screenshot or enter a text query.
+
+Display clear errors such as:
+
+"This video cannot be accessed by the configured integration. Try uploading a screenshot from the scene."
+
+Do not fabricate a successful identification.
+
+### Confidence and matching
+
+Only display confidence values supplied by the recognition provider or calculated by a documented, meaningful matching algorithm.
+
+Clearly distinguish a provider's confidence score from an internal relevance score.
+
+Never claim that a result is confirmed when the evidence is inconclusive.
+
+---
+
+# PHASE 7 — ANIME DETAIL AND EPISODE PAGES
+
+## 7. Anime detail page
+
+Build a reusable, data-driven anime detail template.
+
+The page must include:
+
+- Hero banner or cover artwork.
+- Anime title.
+- Alternative titles.
+- Synopsis.
+- Genres.
+- Release year.
+- Release season when known.
+- Status.
+- Season count.
+- Episode count.
+- Characters.
+- Related anime.
+- Episode listing.
+- Official viewing sources when available.
+- Favorite button.
+- Add to Library button.
+- Share action.
+
+Use real data from the database or configured metadata source.
+
+Do not create separate hardcoded pages for individual anime.
+
+Use dynamic routing.
+
+Provide a loading state while fetching details.
+
+Handle unavailable records and missing artwork.
+
+The favorite and library actions must update real user-specific data for authenticated users.
+
+For unauthenticated users, explain that signing in is required and provide a working authentication route.
+
+If public catalog browsing is enabled, never expose private user data in anime detail responses.
+
+## 7.1 Characters
+
+Create a reusable character card.
+
+Include a portrait when available, name, anime association, and a short description where supported.
+
+Do not fabricate character biographies.
+
+## 7.2 Episode page
+
+Each episode page should include:
+
+- Anime title.
+- Season and episode identifiers.
+- Episode title when available.
+- Synopsis when available.
+- Release information.
+- Runtime when verified.
+- Previous and next episode navigation when the episode order is known.
+- Official viewing options.
+
+Do not create a fake embedded player when no authorized stream exists.
+
+---
+
+# PHASE 8 — DOWNLOAD MANAGER
+
+## 8. Download interface
+
+Create a dedicated download manager with a professional dashboard layout.
+
+Include:
+
+- Supported source URL input.
+- Provider status.
+- Available file information.
+- Permitted format options.
+- Permitted quality options.
+- Download status.
+- Progress when actual progress information is available.
+- Cancel where supported.
+- Retry where supported.
+- Download history.
+- Clear history.
+- Empty state.
+- Error state.
+- Completed state.
+
+Do not make the interface look functional while leaving the underlying operations disconnected.
+
+### Authorization requirements
+
+Only support downloading when the source and content permissions allow it.
+
+Do not bypass DRM, authentication, private-content restrictions, paywalls, or platform download restrictions.
+
+Do not build an unauthorized Instagram downloader.
+
+Prefer official download endpoints, openly licensed media, user-owned files, and sources that explicitly permit downloading.
+
+Where downloading is not authorized or unavailable, offer legitimate viewing options.
+
+### Download architecture
+
+Implement a server-side download provider interface.
+
+A provider must report its actual capabilities and current status.
+
+If a provider is not configured, show an informative unavailable state.
+
+Do not invent quality options or file sizes.
+
+Do not show a fake progress bar.
+
+If actual byte-level progress is available, report it.
+
+Otherwise, show an indeterminate processing state.
+
+Support cancellation only when the underlying task can actually be canceled.
+
+Use server-side job identifiers for long-running jobs where necessary.
+
+Prevent users from submitting arbitrary URLs that could access internal network resources or cloud metadata endpoints.
+
+Implement SSRF protections, host allowlists, redirect validation, response size limits, timeouts, and safe content handling.
+
+Never expose direct access to arbitrary backend URLs.
+
+### Download history
+
+Authenticated users can view their own history.
+
+Allow deletion of history records after confirmation.
+
+Only remove stored files when the user has the appropriate permission and the file is actually managed by the application.
+
+Distinguish between deleting a history record and deleting a stored file.
+
+---
+
+# PHASE 9 — AUTHENTICATION AND PERSONAL LIBRARY
+
+## 9. Account system
+
+Implement:
+
+- Sign up.
+- Login.
+- Logout.
+- Password reset.
+- Session persistence.
+- Profile page.
+- Favorites.
+- Saved anime.
+- Recently viewed anime.
+- Search history where appropriate.
+- Download history.
+- Account settings.
+
+Use Firebase Authentication or Supabase Auth.
+
+Choose one authentication provider and implement it consistently.
+
+Do not integrate both providers unnecessarily.
+
+Do not build a custom password-storage system.
+
+Use the provider's supported authentication flow.
+
+Display clear validation errors.
+
+Prevent duplicate submissions.
+
+Handle expired sessions gracefully.
+
+Never display private library data before the user is authenticated.
+
+Provide a guest browsing experience.
+
+### Favorites
+
+Allow users to add or remove an anime from favorites.
+
+Update the UI only after the operation succeeds, or implement a safe optimistic update with rollback on failure.
+
+Prevent duplicate favorite records.
+
+### My Library
+
+Allow users to save anime to their personal collection.
+
+Include empty states and removal controls.
+
+Persist data in the database.
+
+### Recently viewed
+
+Record anime detail visits for authenticated users when appropriate.
+
+Use a reasonable retention policy.
+
+Allow users to clear their history.
+
+### User privacy
+
+Apply user-level access controls.
+
+A user must never be able to read, update, or delete another user's personal records by changing a request identifier.
+
+Enforce authorization on the server or through verified database security policies.
+
+---
+
+# PHASE 10 — ADMINISTRATIVE DASHBOARD
+
+## 10. Admin experience
+
+Build a separate, polished administrative interface consistent with the AN.FLIX visual system.
+
+Use the same typography, color tokens, spacing, and component library.
+
+The dashboard should contain:
+
+- Overview.
+- Anime management.
+- Episode management.
+- Daily updates.
+- Characters.
+- Genres.
+- Featured titles.
+- Trending rankings.
+- Artwork configuration.
+- Publication scheduling.
+- Administrative settings.
+
+Do not add meaningless charts with invented statistics.
+
+Only show metrics that are supported by actual records.
+
+## 10.1 Anime management
+
+Administrators must be able to:
+
+- Create anime records.
+- Edit anime records.
+- Delete anime records after confirmation.
+- Update descriptions.
+- Update metadata.
+- Add alternative titles.
+- Assign genres.
+- Associate characters.
+- Configure cover and banner artwork.
+- Set featured status.
+- Publish or unpublish content.
+
+Use validated forms.
+
+Display success and error notifications.
+
+Support searching and filtering the admin table.
+
+Use pagination when datasets grow.
+
+## 10.2 Episode management
+
+Administrators must be able to:
+
+- Create episodes.
+- Edit episodes.
+- Delete episodes.
+- Associate episodes with anime.
+- Set season and episode numbers.
+- Add titles and synopses.
+- Configure release dates.
+- Set runtime when known.
+- Configure authorized viewing sources.
+- Publish or unpublish episodes.
+
+Prevent invalid episode relationships.
+
+## 10.3 Daily updates
+
+Administrators must be able to:
+
+- Create update posts.
+- Edit updates.
+- Save drafts.
+- Publish updates.
+- Unpublish updates.
+- Schedule publication when the configured infrastructure supports scheduling.
+
+Display actual publication timestamps.
+
+The homepage must read published updates from the database.
+
+Unpublished drafts must not be visible to ordinary visitors.
+
+## 10.4 Trending and featured content
+
+Allow authorized administrators to manage:
+
+- Featured anime.
+- Display order.
+- Trending rankings.
+- Section visibility.
+
+If the ranking is editorial, identify it as editorial.
+
+If the ranking is data-driven, document the calculation method.
+
+Do not imply that a manually selected list represents actual platform-wide popularity.
+
+## 10.5 Authorization
+
+Administrator access must be enforced server-side.
+
+Do not rely on hidden navigation items or client-side route checks alone.
+
+Do not grant administrator privileges because a user signs up with a particular email address.
+
+Use a trusted role assignment process.
+
+For Supabase, use verified role information and Row Level Security.
+
+For Firebase, use trusted server-side role assignment and verified claims or another secure authorization mechanism.
+
+Never place privileged credentials in frontend code.
+
+All administrative mutations must be authorized on the backend.
+
+---
+
+# PHASE 11 — DATABASE AND DATA MODEL
+
+## 11. Choose a database
+
+Use Supabase with PostgreSQL, Supabase Auth, and Storage as the preferred implementation unless the environment provides a compelling reason to use Firebase.
+
+Before creating any external service, database project, bucket, or backend integration, ASK ME FOR PERMISSION.
+
+Do not automatically create a Supabase or Firebase project.
+
+Do not request secrets in public frontend configuration.
+
+If I have not approved or configured a backend, continue building the frontend and integration interfaces. Provide an explicit setup checklist.
+
+Use a repository abstraction so the application can operate against a clearly labeled local development dataset while the real backend is being configured.
+
+The local dataset must never masquerade as production data.
+
+## 11.1 Required database tables
+
+Design a normalized relational schema.
+
+### anime
+
+Fields:
+
+- id: UUID primary key.
+- title: text, required.
+- alternative_titles: JSONB or normalized related table.
+- slug: unique text.
+- synopsis: text.
+- cover_image_url: text.
+- banner_image_url: text.
+- release_year: integer, nullable.
+- release_season: text, nullable.
+- status: text.
+- episode_count: integer, nullable.
+- featured: boolean, default false.
+- visibility: draft or published.
+- metadata_source: text, nullable.
+- metadata_source_id: text, nullable.
+- created_at: timestamp.
+- updated_at: timestamp.
+
+Use an appropriate unique constraint for metadata source identifiers.
+
+### genres
+
+- id: UUID primary key.
+- name: unique text.
+- slug: unique text.
+
+### anime_genres
+
+- anime_id: foreign key.
+- genre_id: foreign key.
+- Composite unique constraint.
+
+### characters
+
+- id: UUID primary key.
+- name: text.
+- slug: unique text.
+- description: text, nullable.
+- image_url: text, nullable.
+- metadata_source: text, nullable.
+- metadata_source_id: text, nullable.
+
+### anime_characters
+
+- anime_id: foreign key.
+- character_id: foreign key.
+- Optional character role.
+- Composite unique constraint.
+
+### episodes
+
+- id: UUID primary key.
+- anime_id: foreign key.
+- season_number: integer, nullable.
+- episode_number: integer.
+- title: text, nullable.
+- synopsis: text, nullable.
+- thumbnail_url: text, nullable.
+- runtime_seconds: integer, nullable.
+- release_at: timestamp, nullable.
+- visibility: draft or published.
+- created_at: timestamp.
+- updated_at: timestamp.
+
+Use constraints to prevent invalid episode numbers and duplicate episode identities where appropriate.
+
+### anime_updates
+
+- id: UUID primary key.
+- title: text.
+- slug: unique text.
+- summary: text.
+- body: text or a documented structured-content format.
+- cover_image_url: text, nullable.
+- anime_id: foreign key, nullable.
+- publication_status: draft, scheduled, or published.
+- published_at: timestamp, nullable.
+- scheduled_at: timestamp, nullable.
+- author_id: foreign key to the authentication identity where supported.
+- created_at: timestamp.
+- updated_at: timestamp.
+
+### trending_entries
+
+- id: UUID primary key.
+- anime_id: foreign key.
+- ranking_position: integer.
+- ranking_period: text.
+- ranking_source: text.
+- created_at: timestamp.
+
+Ensure uniqueness for the intended ranking period.
+
+### viewing_sources
+
+- id: UUID primary key.
+- anime_id: foreign key.
+- episode_id: foreign key, nullable.
+- provider_name: text.
+- destination_url: text.
+- source_type: text.
+- region: text, nullable.
+- availability_status: text.
+- last_verified_at: timestamp, nullable.
+- created_at: timestamp.
+
+Only show links that have passed basic URL validation. Provider availability and legal permission must be verified according to the applicable source and integration.
+
+### user_profiles
+
+- id: UUID tied to the authenticated user.
+- display_name: text, nullable.
+- avatar_url: text, nullable.
+- created_at: timestamp.
+- updated_at: timestamp.
+
+### favorites
+
+- user_id: authenticated user identifier.
+- anime_id: foreign key.
+- created_at: timestamp.
+- Composite primary key on user_id and anime_id.
+
+### library_items
+
+- user_id: authenticated user identifier.
+- anime_id: foreign key.
+- added_at: timestamp.
+- Optional user-defined status.
+- Composite uniqueness on user_id and anime_id.
+
+### viewing_history
+
+- id: UUID primary key.
+- user_id: authenticated user identifier.
+- anime_id: foreign key.
+- viewed_at: timestamp.
+
+### search_history
+
+- id: UUID primary key.
+- user_id: authenticated user identifier.
+- query: text.
+- search_type: text.
+- created_at: timestamp.
+
+### download_jobs
+
+- id: UUID primary key.
+- user_id: authenticated user identifier.
+- provider: text.
+- source_url: text.
+- status: text.
+- progress_percent: numeric, nullable.
+- output_metadata: JSONB, nullable.
+- error_code: text, nullable.
+- created_at: timestamp.
+- updated_at: timestamp.
+- completed_at: timestamp, nullable.
+
+Do not store sensitive credentials in this table.
+
+### notifications
+
+- id: UUID primary key.
+- user_id: authenticated user identifier.
+- title: text.
+- body: text.
+- destination_path: text, nullable.
+- read_at: timestamp, nullable.
+- created_at: timestamp.
+
+### app_settings
+
+- id: UUID primary key.
+- setting_key: unique text.
+- public_value: JSONB.
+- updated_at: timestamp.
+
+Never expose private secrets through public settings.
+
+### user_roles
+
+- user_id: authenticated user identifier.
+- role: text.
+- assigned_at: timestamp.
+
+Role assignment must be controlled by a trusted process, not by ordinary user signup.
+
+Add indexes for frequently queried fields, foreign keys, publication status, timestamps, and user-owned data.
+
+Use database migrations or version-controlled schema scripts.
+
+Document migration order and rollback considerations.
+
+Do not expose unrestricted write access to public clients.
+
+---
+
+# PHASE 12 — REAL ANIME METADATA
+
+## 12. Metadata provider
+
+Use AniList or another suitable documented anime metadata provider.
+
+Before integration, verify the provider's current API documentation, authentication requirements, rate limits, permitted use, and image-use terms.
+
+Do not assume that a provider offers every field or feature.
+
+Build an adapter layer rather than coupling components directly to provider-specific response formats.
+
+The application should normalize external metadata into internal types.
+
+Required normalized fields may include:
+
+- ID.
+- Title.
+- Alternative titles.
+- Synopsis.
+- Genres.
+- Cover image.
+- Banner image.
+- Release year.
+- Release season.
+- Status.
+- Episode count.
+- Characters when available.
+- Related titles when available.
+
+Only populate fields actually returned by the source.
+
+Cache metadata where permitted.
+
+Handle rate limits, network failures, unavailable records, and missing artwork.
+
+Do not send an API key to the browser if the provider requires it to remain private.
+
+Use server-side API calls where required.
+
+If the provider permits public client-side requests without a secret, use the documented method appropriately.
+
+Never scrape undocumented endpoints as a shortcut.
+
+### Data synchronization
+
+Distinguish between:
+
+- Externally sourced metadata.
+- Locally curated editorial content.
+- Administrator-entered information.
+- Actual release data.
+
+Record metadata source information where useful.
+
+Do not claim that an API automatically supplies verified daily episode releases unless the provider actually supports the required data.
+
+Use scheduled synchronization only after the required backend and scheduler are configured.
+
+Do not invent release times.
+
+---
+
+# PHASE 13 — SERVER-SIDE ARCHITECTURE
+
+## 13. Backend responsibilities
+
+Keep the frontend presentation layer separate from privileged operations.
+
+Implement server-side handlers or serverless functions for operations that require:
+
+- Secret API credentials.
+- Protected administration.
+- Secure media processing.
+- Image-recognition providers.
+- Authorized video metadata retrieval.
+- Long-running download tasks.
+- Scheduling.
+- Sensitive external API integrations.
+
+Use the deployment platform's supported server runtime.
+
+Do not assume that a frontend-only Vite deployment can execute server-side functions.
+
+If Vercel, another hosting provider, or a dedicated backend is used, implement the correct deployment structure for that platform.
+
+### Provider interfaces
+
+Define typed interfaces for:
+
+- AnimeMetadataProvider.
+- AnimeImageRecognitionProvider.
+- VideoLinkRecognitionProvider.
+- AuthorizedDownloadProvider.
+- AuthenticationProvider.
+- ContentRepository.
+- NotificationProvider.
+
+Provide a clear distinction between a configured production provider and a development fallback.
+
+Use dependency injection or a simple provider registry.
+
+This allows services to be replaced without rewriting the UI.
+
+### API response format
+
+Use a consistent API response structure.
+
+Successful response:
+
+- success: true.
+- data: normalized result.
+- requestId: optional diagnostic identifier.
+
+Failed response:
+
+- success: false.
+- error: safe user-facing message.
+- code: stable error code.
+- requestId: optional diagnostic identifier.
+
+Never return stack traces, credentials, internal paths, or sensitive provider responses to ordinary users.
+
+### Error handling
+
+Handle:
+
+- Network failures.
+- Timeouts.
+- Invalid requests.
+- Missing records.
+- Unauthorized requests.
+- Forbidden operations.
+- Rate limits.
+- Provider unavailability.
+- Database failures.
+- Unsupported links.
+- Oversized files.
+- Invalid file formats.
+
+Provide useful recovery actions.
+
+Do not silently swallow errors.
+
+---
+
+# PHASE 14 — SECURITY AND PRIVACY
+
+## 14. Required safeguards
+
+Implement:
+
+1. Server-side authentication checks for protected actions.
+2. Database authorization and Row Level Security where applicable.
+3. User-level isolation of personal records.
+4. Server-side role checks for administration.
+5. Input validation.
+6. Output encoding and safe rendering.
+7. Safe external URL validation.
+8. SSRF protection for URL processing.
+9. Upload size and file-type restrictions.
+10. Rate limiting for expensive operations.
+11. Timeouts for external requests.
+12. Safe error responses.
+13. Secure environment-variable handling.
+14. A documented data-retention policy.
+15. Confirmation before destructive actions.
+16. Appropriate security headers and deployment configuration.
+
+Never place privileged service-role keys in frontend variables.
+
+For Vite, variables exposed through the `VITE_` prefix must be considered public.
+
+Do not place private API keys in such variables.
+
+Only expose public configuration values that are safe to distribute.
+
+Keep administrative operations behind verified authorization.
+
+Use server-side validation even when the frontend already validates input.
+
+Do not store passwords in application tables.
+
+Do not persist uploaded images unnecessarily.
+
+Do not log passwords, authentication tokens, API keys, or sensitive personal information.
+
+Provide privacy and terms pages that accurately describe implemented functionality.
+
+Do not claim legal compliance certifications that have not been obtained.
+
+---
+
+# PHASE 15 — COMPONENT ARCHITECTURE
+
+## 15. Reusable components
+
+Create reusable components for:
+
+- AppShell.
+- Sidebar.
+- TopNavigation.
+- MobileNavigation.
+- GlobalSearch.
+- SearchSuggestions.
+- AnimeHero.
+- AnimeCard.
+- AnimeCardSkeleton.
+- AnimeCarousel.
+- UpdateCard.
+- TrendingList.
+- EpisodeRow.
+- CharacterCard.
+- GenreBadge.
+- StatusBadge.
+- SectionHeader.
+- QuickToolCard.
+- FavoriteButton.
+- LibraryButton.
+- ViewingSourceList.
+- ImageUploadPanel.
+- LinkIdentificationForm.
+- TextSearchPanel.
+- SearchResultCard.
+- DownloadJobCard.
+- DownloadHistoryTable.
+- EmptyState.
+- ErrorState.
+- LoadingSkeleton.
+- ConfirmationDialog.
+- ToastProvider.
+- NotificationMenu.
+- ProfileMenu.
+- Pagination.
+- AdminDataTable.
+- AdminForm.
+- ProtectedRoute.
+- ErrorBoundary.
+- Footer.
+
+Do not duplicate large amounts of component code.
+
+Use shared form controls, buttons, cards, dialogs, badges, and input styles.
+
+Use a consistent component library when useful, such as shadcn/ui with Tailwind CSS.
+
+Avoid introducing unnecessary dependencies.
+
+Use TypeScript types for entities, API responses, providers, and component props.
+
+Avoid `any` wherever a proper type can be defined.
+
+Keep business logic outside presentational components.
+
+---
+
+# PHASE 16 — RECOMMENDED PROJECT STRUCTURE
+
+Adapt this structure to the actual Google AI Studio environment.
+
+Do not create duplicate or conflicting application entry points.
+
+A suitable structure is:
+
+src/
+  app/
+    App.tsx
+    router.tsx
+    providers.tsx
+
+  components/
+    layout/
+      AppShell.tsx
+      Sidebar.tsx
+      TopNavigation.tsx
+      MobileNavigation.tsx
+      Footer.tsx
+
+    anime/
+      AnimeCard.tsx
+      AnimeHero.tsx
+      AnimeCarousel.tsx
+      EpisodeRow.tsx
+      CharacterCard.tsx
+      ViewingSourceList.tsx
+
+    search/
+      SearchPanel.tsx
+      TextSearch.tsx
+      ImageSearch.tsx
+      LinkSearch.tsx
+      SearchResultCard.tsx
+
+    download/
+      DownloadForm.tsx
+      DownloadJobCard.tsx
+      DownloadHistory.tsx
+
+    admin/
+      AdminLayout.tsx
+      AdminTable.tsx
+      AdminForms.tsx
+
+    shared/
+      Button.tsx
+      Input.tsx
+      Dialog.tsx
+      Badge.tsx
+      EmptyState.tsx
+      ErrorState.tsx
+      LoadingSkeleton.tsx
+
+  pages/
+    HomePage.tsx
+    UpdatesPage.tsx
+    TrendingPage.tsx
+    SearchPage.tsx
+    AnimeDetailPage.tsx
+    EpisodePage.tsx
+    DownloadPage.tsx
+    DownloadsPage.tsx
+    LibraryPage.tsx
+    FavoritesPage.tsx
+    HistoryPage.tsx
+    NotificationsPage.tsx
+    ProfilePage.tsx
+    SettingsPage.tsx
+    LoginPage.tsx
+    SignupPage.tsx
+    ForgotPasswordPage.tsx
+    AboutPage.tsx
+    ContactPage.tsx
+    PrivacyPage.tsx
+    TermsPage.tsx
+    NotFoundPage.tsx
+
+    admin/
+      AdminOverviewPage.tsx
+      AdminAnimePage.tsx
+      AdminEpisodesPage.tsx
+      AdminUpdatesPage.tsx
+      AdminCharactersPage.tsx
+      AdminGenresPage.tsx
+      AdminTrendingPage.tsx
+      AdminSettingsPage.tsx
+
+  hooks/
+    useAuth.ts
+    useAnimeSearch.ts
+    useFavorites.ts
+    useLibrary.ts
+    useNotifications.ts
+    useTheme.ts
+
+  services/
+    anime/
+      AnimeMetadataProvider.ts
+      AnimeRepository.ts
+      AnimeSearchService.ts
+
+    identification/
+      ImageRecognitionProvider.ts
+      VideoLinkRecognitionProvider.ts
+
+    download/
+      AuthorizedDownloadProvider.ts
+      DownloadService.ts
+
+    auth/
+      AuthProvider.ts
+
+    api/
+      apiClient.ts
+      errorHandling.ts
+
+  lib/
+    env.ts
+    validation.ts
+    constants.ts
+    utils.ts
+
+  types/
+    anime.ts
+    episode.ts
+    user.ts
+    api.ts
+    download.ts
+
+  styles/
+    globals.css
+    design-tokens.css
+
+  test/
+    components/
+    pages/
+    services/
+
+server/
+  api/
+  middleware/
+  providers/
+  jobs/
+  security/
+
+supabase/
+  migrations/
+  seed.sql
+  config.toml
+
+public/
+  assets/
+  favicon.svg
+  robots.txt
+
+This structure is a guide. If the chosen hosting environment requires a different server or function layout, follow the platform's documented conventions.
+
+---
+
+# PHASE 17 — ENVIRONMENT VARIABLES
+
+## 17. Configuration
+
+Create a documented `.env.example`.
+
+Never include real credentials in the example file.
+
+Use only variables that the implemented application actually requires.
+
+Potential variables:
+
+`VITE_SUPABASE_URL=`
+
+`VITE_SUPABASE_ANON_KEY=`
+
+`SUPABASE_URL=`
+
+`SUPABASE_SERVICE_ROLE_KEY=`
+
+`ANILIST_API_URL=`
+
+`ANIME_IMAGE_RECOGNITION_API_KEY=`
+
+`VIDEO_RECOGNITION_API_KEY=`
+
+`AUTHORIZED_DOWNLOAD_PROVIDER_KEY=`
+
+`APP_BASE_URL=`
+
+`SCHEDULER_SECRET=`
+
+`ADMIN_BOOTSTRAP_SECRET=`
+
+Do not expose private server-side variables through frontend build configuration.
+
+Use the correct environment-variable conventions for the selected hosting platform.
+
+Remove unused variables from the final implementation.
+
+For every variable, document:
+
+- Purpose.
+- Whether it is public or secret.
+- Where it belongs.
+- Which feature requires it.
+- How to obtain or configure it.
+- Whether the website can operate without it.
+
+Do not invent API endpoints, credentials, or provider capabilities.
+
+If an integration is not selected, leave its secret unset and mark the integration as unconfigured.
+
+---
+
+# PHASE 18 — RESPONSIVE DESIGN
+
+## 18. Required viewport behavior
+
+Test the website at approximately:
+
+- 360px mobile.
+- 390px mobile.
+- 430px mobile.
+- 768px tablet.
+- 1024px laptop.
+- 1280px desktop.
+- 1440px desktop.
+- 1920px wide desktop.
+
+### Desktop
+
+- Stable sidebar.
+- Compact top navigation.
+- Spacious content.
+- Balanced card grids.
+- Large cinematic hero.
+
+### Tablet
+
+- Narrower sidebar or collapsible navigation.
+- Reduced card columns.
+- Appropriate hero scaling.
+- Comfortable touch targets.
+
+### Mobile
+
+- Sidebar becomes a drawer or compact mobile navigation.
+- Search remains accessible.
+- Cards use a suitable grid or horizontal carousel.
+- Hero content stacks naturally.
+- Images maintain their intended aspect ratios.
+- Buttons remain fully visible.
+- Forms fit within the viewport.
+- Tables become responsive lists or horizontally manageable tables.
+- Modals fit the screen.
+- Navigation menus can be opened and closed by touch and keyboard.
+
+Prevent:
+
+- Horizontal overflow.
+- Overlapping text.
+- Clipped buttons.
+- Unusable tiny controls.
+- Oversized fixed-width elements.
+- Content hidden behind navigation.
+- Unreadable image overlays.
+
+Use responsive CSS and container-aware layouts where appropriate.
+
+Do not simply scale the desktop interface down.
+
+---
+
+# PHASE 19 — ACCESSIBILITY
+
+## 19. Accessibility requirements
+
+Use semantic HTML.
+
+Ensure that:
+
+- All interactive controls are keyboard accessible.
+- Focus indicators are visible.
+- Text contrast is appropriate.
+- Images have meaningful alternative text when informative.
+- Decorative images use empty alternative text.
+- Form controls have labels.
+- Error messages are associated with their fields.
+- Dialogs manage focus correctly.
+- Menus have accessible behavior.
+- Loading and success messages can be announced appropriately.
+- Buttons are distinguishable from links.
+- Color is not the only indicator of status.
+- Reduced-motion preferences are respected.
+
+Use appropriate ARIA attributes only when needed.
+
+Do not use clickable `div` elements when a button or link is appropriate.
+
+Target WCAG 2.2 AA where practical.
+
+---
+
+# PHASE 20 — SEO AND PERFORMANCE
+
+## 20. Search engine readiness
+
+Implement:
+
+- Meaningful page titles.
+- Meta descriptions.
+- Canonical URL support where appropriate.
+- Open Graph metadata.
+- Twitter/X card metadata.
+- A custom favicon.
+- A robots.txt file.
+- A sitemap strategy.
+- Appropriate structured data where justified by the content.
+- Clean, stable public routes.
+
+Only index pages intended for public discovery.
+
+Do not index private account pages or admin routes.
+
+Use a rendering strategy appropriate for the deployment platform.
+
+If the chosen setup is a client-rendered SPA, document its SEO limitations and implement the supported prerendering or rendering improvements where practical.
+
+Do not claim that metadata alone guarantees indexing.
+
+### Performance
+
+Implement:
+
+- Lazy loading for below-the-fold images.
+- Responsive image sizing.
+- Appropriate image formats.
+- Stable aspect ratios.
+- Route-level code splitting when beneficial.
+- Skeletons for slow data.
+- Caching where permitted.
+- Pagination for large lists.
+- Debounced search.
+- Abortable requests where practical.
+- Reasonable API timeouts.
+- Prevention of duplicate requests.
+- Efficient rendering.
+
+Avoid loading every anime image on the homepage at once.
+
+---
+
+# PHASE 21 — DAILY CONTENT AND SCHEDULING
+
+## 21. Content workflow
+
+The administrator must be able to maintain the website without editing source code for routine content changes.
+
+Implement a workflow:
+
+1. Create or import an anime record.
+2. Review and correct metadata.
+3. Associate genres and characters.
+4. Add episodes and verified release information.
+5. Create an editorial update if needed.
+6. Preview the content.
+7. Publish immediately or schedule it if scheduling is configured.
+8. Verify that published content appears on the public website.
+
+Homepage sections must read from the configured data source.
+
+Do not embed permanent arrays of anime titles in page components as the production content source.
+
+A development seed script is acceptable.
+
+Clearly separate seed data from production data.
+
+### Scheduling
+
+Do not simulate scheduled publishing using a browser timer.
+
+Use a supported server-side scheduler, database job mechanism, or hosting scheduler.
+
+If scheduling infrastructure is unavailable, implement draft and publish-now functionality and explain how scheduled publishing can be enabled later.
+
+Do not promise automatic daily updates unless a working provider and scheduler are configured.
+
+---
+
+# PHASE 22 — FOOTER AND BRANDING
+
+## 22. Footer design
+
+Create a clean, premium footer that matches the dark interface.
+
+Include:
+
+AN.FLIX
+
+Watch · Discover · Explore
+
+Navigation:
+
+- Home.
+- Updates.
+- Search.
+- Download.
+- Library.
+- About.
+- Contact.
+- Privacy Policy.
+- Terms of Service.
+
+Include configurable social links.
+
+Do not invent social media accounts or contact details.
+
+Hide unconfigured social links rather than sending visitors to unrelated destinations.
+
+Add a restrained cinematic artwork strip or gradient panel.
+
+Display:
+
+"Not just anime, it's a whole world waiting for you."
+
+Include a copyright line using the appropriate current year.
+
+Ensure all links have valid destinations.
+
+---
+
+# PHASE 23 — FUNCTIONALITY REQUIREMENTS
+
+## 23. Every interactive element must work
+
+This is a strict acceptance requirement.
+
+Do not leave decorative controls pretending to be functional.
+
+Implement actual behavior for:
+
+- Sidebar navigation.
+- Top navigation.
+- Global search.
+- Search suggestions.
+- Search clear button.
+- Search mode tabs.
+- File picker.
+- Drag-and-drop upload.
+- Image removal.
+- Link validation.
+- Search submission.
+- Result cards.
+- View All buttons.
+- Anime cards.
+- Episode rows.
+- Favorite toggles.
+- Library actions.
+- Profile menu.
+- Notification menu.
+- Theme toggle.
+- Login.
+- Signup.
+- Logout.
+- Password reset.
+- Download submission.
+- Download cancellation where supported.
+- Download retry where supported.
+- Download history.
+- History clearing.
+- Admin tables.
+- Admin forms.
+- Publication controls.
+- Pagination.
+- Mobile navigation.
+- Dialog close buttons.
+- Confirmation dialogs.
+- Footer links.
+- Back navigation.
+
+For each control:
+
+1. Define its intended behavior.
+2. Connect it to a real action.
+3. Validate input where applicable.
+4. Display loading or disabled states appropriately.
+5. Handle success and failure.
+6. Provide feedback to the user.
+7. Test the behavior.
+
+Use buttons for actions and links for navigation.
+
+Do not use `href="#"`.
+
+Do not leave empty event handlers.
+
+Do not make a button merely change its color when it is expected to perform an operation.
+
+If an operation requires an unavailable external service, clearly explain the limitation and provide a meaningful alternative.
+
+Do not silently swallow failed operations.
+
+---
+
+# PHASE 24 — TESTING AND QUALITY ASSURANCE
+
+## 24. Testing strategy
+
+Implement automated tests using a suitable testing stack, such as Vitest and React Testing Library, with Playwright for browser-level testing when supported.
+
+Do not claim tests have passed unless they have actually been executed.
+
+### Unit tests
+
+Test:
+
+- Search input validation.
+- URL provider detection.
+- File validation.
+- Data normalization.
+- Error handling.
+- Favorite state.
+- Library state.
+- Download state transitions.
+- Permission checks.
+- Pagination calculations.
+- Theme preference persistence.
+
+### Component tests
+
+Test:
+
+- Navigation.
+- Search form.
+- Image upload panel.
+- Anime cards.
+- Favorite button.
+- Library button.
+- Download controls.
+- Dialogs.
+- Admin forms.
+- Empty states.
+- Error states.
+
+### Integration tests
+
+Test:
+
+- Anime metadata retrieval.
+- Database queries.
+- Authentication state.
+- User-specific favorites.
+- Library operations.
+- Admin authorization.
+- Content publication.
+- Download provider responses.
+- Image recognition provider responses.
+- Unsupported-provider behavior.
+
+Mock external services in automated tests. Keep tests separate from production credentials.
+
+### End-to-end tests
+
+Test these complete journeys:
+
+1. Visitor opens the homepage.
+2. Visitor searches for an anime by title.
+3. Visitor opens an anime details page.
+4. Visitor opens an episode details page.
+5. Visitor attempts image identification with an unsupported configuration and receives an honest explanation.
+6. Visitor submits an unsupported video link and receives an appropriate error.
+7. User signs up and logs in.
+8. User adds an anime to favorites.
+9. User saves an anime to the library.
+10. User removes an anime from favorites.
+11. User logs out.
+12. An unauthorized user attempts to open an admin route.
+13. An authorized administrator creates an anime.
+14. The administrator publishes an update.
+15. The published update appears on the homepage.
+16. An administrator edits an episode.
+17. A user attempts an unavailable download and receives a truthful fallback.
+18. Mobile navigation opens and closes.
+19. Theme preference persists after reload.
+20. Browser back and forward navigation work.
+
+Also test network errors, expired sessions, duplicate submissions, and invalid forms.
+
+### Visual quality checks
+
+Inspect every major page at desktop and mobile widths.
+
+Check:
+
+- Typography.
+- Spacing.
+- Card alignment.
+- Artwork cropping.
+- Color consistency.
+- Focus indicators.
+- Loading states.
+- Empty states.
+- Error states.
+- Overflow.
+- Console errors.
+- Broken network requests.
+
+Correct visible issues before considering the build complete.
+
+---
+
+# PHASE 25 — IMPLEMENTATION WORKFLOW
+
+## 25. Build in controlled phases
+
+Do not attempt to generate the entire project as one unstructured code dump.
+
+Work directly in the project workspace and implement the application in manageable phases.
+
+### Phase A — Inspect and plan
+
+Inspect the existing project structure.
+
+Determine which framework, dependencies, build tools, and runtime are already available.
+
+Do not overwrite working files blindly.
+
+Identify any incompatible dependencies or missing requirements.
+
+Create a concise implementation checklist.
+
+Then proceed to implementation.
+
+Do not stop after producing the checklist.
+
+### Phase B — Design foundation
+
+Implement:
+
+- Design tokens.
+- Typography.
+- Global styles.
+- Reusable controls.
+- Responsive app shell.
+- Sidebar.
+- Top navigation.
+- Footer.
+- Theme support.
+
+Build the home page's visual structure with particular care.
+
+### Phase C — Data and routing
+
+Implement:
+
+- Type definitions.
+- Routing.
+- Repository interfaces.
+- Anime metadata adapter.
+- Development seed data.
+- Loading, empty, and error states.
+- Dynamic anime routes.
+- Episode routes.
+
+Ensure that development data is clearly separated from production data.
+
+### Phase D — Core discovery features
+
+Implement:
+
+- Global text search.
+- Search suggestions.
+- Anime details.
+- Latest updates.
+- Trending.
+- Featured content.
+- Latest episodes.
+- Character displays.
+
+### Phase E — Backend and authentication
+
+After I approve the backend provider and required configuration:
+
+- Set up the database.
+- Apply migrations.
+- Configure authentication.
+- Configure storage when required.
+- Implement server-side handlers.
+- Configure authorization policies.
+- Connect the frontend to real data.
+- Verify user isolation.
+
+Do not create a backend project without my permission.
+
+### Phase F — Identification and download integrations
+
+Implement provider interfaces first.
+
+Connect only documented and configured services.
+
+Test supported and unsupported cases.
+
+Provide honest fallbacks.
+
+### Phase G — Admin dashboard
+
+Implement secure content management.
+
+Verify server-side permissions before allowing administrative mutations.
+
+Connect the public site to published database content.
+
+### Phase H — Quality assurance
+
+Run the available build, lint, type-check, and test commands.
+
+Fix failures.
+
+Review responsive behavior.
+
+Verify routes and interactions.
+
+Inspect browser console output and network failures when browser tooling is available.
+
+### Phase I — Deployment
+
+Prepare the project for the chosen hosting provider.
+
+Document required configuration, migrations, build commands, and post-deployment checks.
+
+Do not claim the website is deployed unless deployment actually occurred.
+
+---
+
+# PHASE 26 — DEPLOYMENT
+
+## 26. Deployment requirements
+
+Prepare the project for a supported hosting provider, such as Vercel or another suitable platform.
+
+Use a deployment configuration compatible with the actual project architecture.
+
+If the project contains a Vite frontend and serverless backend functions, configure each correctly.
+
+Do not deploy a frontend-only application while pretending server-side functions exist.
+
+Document:
+
+1. Prerequisites.
+2. Required accounts.
+3. Repository setup.
+4. Environment variables.
+5. Database setup.
+6. Migration execution.
+7. Authentication redirect URLs.
+8. Storage configuration, if used.
+9. Serverless function configuration.
+10. API provider setup.
+11. Build command.
+12. Output directory.
+13. Deployment steps.
+14. Production smoke tests.
+15. Rollback considerations.
+
+Include the actual build commands used by the project.
+
+For a typical Vite application, these may be:
+
+`npm install`
+
+`npm run dev`
+
+`npm run build`
+
+`npm run preview`
+
+Only document commands that match the actual scripts in the generated project.
+
+If automated tests and linting are configured, include their real commands.
+
+### Post-deployment checks
+
+Verify:
+
+- Homepage loads.
+- Public anime metadata is accessible.
+- Routes work on direct navigation.
+- Authentication redirects are correct.
+- User-specific data remains private.
+- Admin access is protected.
+- API endpoints are reachable.
+- External services handle failures.
+- Mobile layout works.
+- SEO files are available.
+- No secret keys appear in client bundles.
+
+Never claim successful deployment or successful tests without evidence.
+
+---
+
+# PHASE 27 — REQUIRED PROJECT DOCUMENTATION
+
+## 27. Create a useful README
+
+The README must include:
+
+- Project overview.
+- Main features.
+- Technology stack.
+- Architecture overview.
+- Project structure.
+- Local development instructions.
+- Environment-variable reference.
+- Database setup.
+- Authentication setup.
+- Anime metadata provider setup.
+- Image recognition configuration.
+- Video-link integration configuration.
+- Authorized download provider configuration.
+- Admin account provisioning.
+- Test commands.
+- Build commands.
+- Deployment instructions.
+- Security notes.
+- Current limitations.
+
+Also create:
+
+`.env.example`
+
+`README.md`
+
+Database migration files if using Supabase.
+
+A seed script for development.
+
+A concise integration status document listing each external feature as one of:
+
+- Implemented and configured.
+- Implemented but requires credentials.
+- Implemented with limited provider support.
+- Not yet implemented.
+- Unavailable because of provider restrictions.
+
+Be explicit about what remains unfinished.
+
+---
+
+# PHASE 28 — FINAL ACCEPTANCE CRITERIA
+
+The application is not complete merely because it compiles.
+
+The following conditions define a successful build.
+
+### Visual acceptance
+
+- The homepage has a premium, cinematic, dark anime-inspired design.
+- The layout closely follows the specified dashboard structure.
+- The hero is visually dominant and readable.
+- The sidebar, navigation, cards, and typography form one consistent system.
+- Every required page uses the same design language.
+- The mobile experience is intentionally designed.
+- No major layout defects remain.
+
+### Functional acceptance
+
+- All required routes exist.
+- Navigation works.
+- Search submits real requests.
+- Anime cards open valid details pages.
+- Detail pages use dynamic data.
+- User authentication works when configured.
+- Favorites and library records persist when the backend is configured.
+- Admin actions are securely authorized.
+- Published content appears on the public site.
+- Image and link identification report truthful results.
+- Download controls only offer supported and authorized operations.
+- Missing integrations produce clear explanations.
+- Every visible interactive control has meaningful behavior.
+
+### Engineering acceptance
+
+- TypeScript types are used consistently.
+- The code is modular and maintainable.
+- Secrets remain server-side.
+- Database access is protected.
+- Errors are handled.
+- Loading and empty states exist.
+- Responsive layouts are implemented.
+- The build succeeds.
+- Automated tests are added and executed where supported.
+- Setup and deployment instructions are accurate.
+
+### Data integrity acceptance
+
+- No fabricated live release information.
+- No fabricated recognition results.
+- No invented popularity statistics presented as factual.
+- No fake viewing sources.
+- No fake download progress.
+- No fake authentication.
+- No hardcoded production user data.
+- No unverified claims about external provider capabilities.
+
+---
+
+# FINAL EXECUTION INSTRUCTIONS
+
+Start building AN.FLIX in the current project workspace now.
+
+Follow these priorities in order:
+
+1. Establish the premium visual design system.
+2. Build the complete responsive application shell.
+3. Implement the homepage to a high visual standard.
+4. Implement routing and all public pages.
+5. Implement reusable anime cards and dynamic detail pages.
+6. Integrate a real anime metadata provider where permitted.
+7. Build the text, image, and link search interfaces.
+8. Implement authentication and the personal library when the backend is configured.
+9. Implement the download manager using authorized providers.
+10. Build the secure admin dashboard.
+11. Add migrations, documentation, and environment configuration.
+12. Run the build and tests.
+13. Fix errors and inspect the responsive interface.
+14. Prepare deployment instructions.
+
+Do not stop after generating a homepage.
+
+Do not replace real integrations with decorative buttons.
+
+Do not invent credentials or external API capabilities.
+
+Do not create a Firebase or Supabase project without first asking me for permission.
+
+Do not expose secrets in frontend code.
+
+Do not leave unfinished pages looking like completed features.
+
+If the full application cannot be implemented in one execution, complete the current phase properly, preserve the working code, identify what is completed, and continue with the next phase in the existing project.
+
+Do not rewrite the project from scratch on every iteration.
+
+When you finish, provide a concise implementation report covering:
+
+- Features implemented.
+- Pages and routes created.
+- Integrations that are working.
+- Integrations requiring my configuration.
+- Environment variables required.
+- Database migrations and setup instructions.
+- Tests actually executed and their results.
+- Build status.
+- Deployment instructions.
+- Known limitations.
+
+The final result must be a cohesive, premium, responsive, maintainable AN.FLIX application—not merely a visual concept.
+
+**Begin implementation now.**
